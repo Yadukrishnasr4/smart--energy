@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fusion Smart - Energy Dashboard</title>
@@ -23,7 +24,7 @@
             --accent-red: #fd4f64;
             --accent-purple: #ab46d2;
             --accent-green: #a4ce4e;
-            --border-color: rgba(255,255,255,0.05);
+            --border-color: rgba(255, 255, 255, 0.05);
             --sidebar-width: 260px;
         }
 
@@ -33,7 +34,7 @@
             --bg-card: #ffffff;
             --text-active: #1e293b;
             --text-muted: #64748b;
-            --border-color: rgba(0,0,0,0.1);
+            --border-color: rgba(0, 0, 0, 0.1);
         }
 
         * {
@@ -58,11 +59,13 @@
                 overflow-y: auto;
                 height: auto;
             }
+
             .sidebar {
                 width: 100%;
                 padding: 15px 0;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
             }
+
             .brand {
                 margin-bottom: 20px;
                 display: flex;
@@ -70,27 +73,33 @@
                 justify-content: center;
                 gap: 10px;
             }
+
             .brand .beta {
                 margin-top: 0;
             }
+
             .nav-menu {
                 display: flex;
                 overflow-x: auto;
                 padding-bottom: 10px;
             }
+
             .nav-menu li {
                 padding: 10px 20px;
                 white-space: nowrap;
                 border-left: none;
                 border-bottom: 3px solid transparent;
             }
+
             .nav-menu li.active {
                 border-left-color: transparent;
                 border-bottom-color: var(--accent-cyan);
             }
+
             .main-content {
                 padding: 20px;
             }
+
             .header-left {
                 flex-direction: column;
                 align-items: flex-start;
@@ -105,7 +114,7 @@
             display: flex;
             flex-direction: column;
             padding: 30px 0;
-            box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
             z-index: 10;
             transition: width 0.3s, transform 0.3s;
             position: fixed;
@@ -140,7 +149,7 @@
         }
 
         .nav-menu li {
-            padding: 16px 30px;
+            padding: 16px 25px;
             cursor: pointer;
             display: flex;
             align-items: center;
@@ -153,13 +162,13 @@
 
         .nav-menu li:hover {
             color: var(--text-active);
-            background: rgba(255,255,255,0.02);
+            background: rgba(255, 255, 255, 0.02);
         }
 
         .nav-menu li.active {
             color: var(--text-active);
             border-left-color: var(--accent-cyan);
-            background: rgba(255,255,255,0.05);
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .nav-menu li svg {
@@ -189,8 +198,9 @@
 
         .header-left {
             display: flex;
-            align-items: center;
-            gap: 30px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 15px;
         }
 
         .header h1 {
@@ -200,16 +210,19 @@
         }
 
         .toggle-group {
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 20px;
             display: flex;
+            flex-direction: row;
+            justify-content: center;
             padding: 4px;
+            gap: 5px;
         }
 
         .toggle-group button {
             background: transparent;
             border: none;
-            color: rgba(255,255,255,0.6);
+            color: rgba(255, 255, 255, 0.6);
             padding: 6px 16px;
             border-radius: 16px;
             cursor: pointer;
@@ -222,12 +235,12 @@
         .toggle-group button.active {
             background: #1e293b;
             color: var(--text-active);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
         .date-label {
             font-size: 16px;
-            color: rgba(255,255,255,0.8);
+            color: rgba(255, 255, 255, 0.8);
         }
 
         /* Grid Layout */
@@ -242,7 +255,7 @@
             background: var(--bg-card);
             border-radius: 6px;
             padding: 20px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
             display: flex;
             flex-direction: column;
             position: relative;
@@ -253,7 +266,7 @@
 
         .card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.25);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
         }
 
         .card-title {
@@ -302,7 +315,7 @@
             font-size: 12px;
             margin-bottom: 10px;
             padding-bottom: 10px;
-            border-bottom: 1px dashed rgba(255,255,255,0.1);
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
         }
 
         .increase-text {
@@ -330,6 +343,7 @@
         .progress-group {
             margin-bottom: 25px;
         }
+
         .progress-label {
             display: flex;
             justify-content: space-between;
@@ -337,23 +351,27 @@
             color: var(--text-active);
             margin-bottom: 8px;
         }
+
         .progress-label span:last-child {
             color: var(--text-muted);
             font-size: 11px;
         }
+
         .progress-bar {
             width: 100%;
             height: 8px;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 4px;
             overflow: hidden;
             margin-bottom: 5px;
         }
+
         .progress-fill {
             height: 100%;
             border-radius: 4px;
             transition: width 1s ease-in-out;
         }
+
         .progress-subtext {
             font-size: 11px;
             color: var(--text-muted);
@@ -371,6 +389,7 @@
             flex-direction: column;
             gap: 15px;
         }
+
         .legend-item {
             display: flex;
             align-items: center;
@@ -378,6 +397,7 @@
             font-size: 12px;
             color: var(--text-muted);
         }
+
         .dot {
             width: 10px;
             height: 10px;
@@ -388,26 +408,68 @@
         .modal {
             display: none;
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.6);
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
             backdrop-filter: blur(4px);
             z-index: 100;
             align-items: center;
             justify-content: center;
         }
+
         .modal-content {
             background: var(--bg-card);
             padding: 30px;
             border-radius: 8px;
             width: 400px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
-        .modal h3 { margin-bottom: 20px; }
-        .input-group { margin-bottom: 15px; }
-        .input-group label { display: block; font-size: 12px; margin-bottom: 5px; color: var(--text-muted); }
-        .input-group input { width: 100%; padding: 10px; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); color: white; border-radius: 4px; }
-        .btn { padding: 10px 20px; background: var(--accent-cyan); color: #000; border: none; border-radius: 4px; cursor: pointer; font-weight: 600; width: 100%; margin-top: 10px; }
-        .close-btn { position: absolute; top: 20px; right: 20px; cursor: pointer; color: var(--text-muted); }
+
+        .modal h3 {
+            margin-bottom: 20px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 12px;
+            margin-bottom: 5px;
+            color: var(--text-muted);
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 4px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            background: var(--accent-cyan);
+            color: #000;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            color: var(--text-muted);
+        }
 
         /* Alert Banner */
         .alert-banner {
@@ -429,12 +491,14 @@
             display: flex;
             gap: 30px;
         }
+
         .profile-left {
             display: flex;
             flex-direction: column;
             align-items: center;
             width: 120px;
         }
+
         .avatar-circle {
             width: 100px;
             height: 100px;
@@ -447,14 +511,16 @@
             font-weight: bold;
             color: white;
             margin-bottom: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
+
         .profile-right {
             flex: 1;
         }
+
         .profile-right h4 {
             margin-bottom: 20px;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             padding-bottom: 10px;
             color: #d1d5db;
         }
@@ -465,6 +531,7 @@
             opacity: 0.7;
             cursor: pointer;
         }
+
         input[type="date"]::-webkit-calendar-picker-indicator:hover {
             opacity: 1;
         }
@@ -476,20 +543,26 @@
             width: 54px;
             height: 28px;
         }
+
         .switch input {
             opacity: 0;
             width: 0;
             height: 0;
         }
+
         .slider {
             position: absolute;
             cursor: pointer;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background-color: rgba(255,255,255,0.1);
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(255, 255, 255, 0.1);
             transition: .4s;
             border-radius: 34px;
-            border: 1px solid rgba(255,255,255,0.05);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
+
         .slider:before {
             position: absolute;
             content: "";
@@ -500,25 +573,46 @@
             background-color: white;
             transition: .4s;
             border-radius: 50%;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
-        input:checked + .slider {
+
+        input:checked+.slider {
             background-color: var(--accent-cyan);
         }
-        input:checked + .slider:before {
+
+        input:checked+.slider:before {
             transform: translateX(26px);
         }
-        input:disabled + .slider {
+
+        input:disabled+.slider {
             opacity: 0.5;
             cursor: not-allowed;
         }
 
         /* Responsive Media Queries */
         @media screen and (max-width: 1024px) {
-            :root { --sidebar-width: 80px; }
-            .sidebar .brand h2, .sidebar .nav-menu span, .sidebar .user-profile span { display: none; }
-            .sidebar .nav-menu li { justify-content: center; padding: 15px; }
-            .main-content { margin-left: 80px; }
+            :root {
+                --sidebar-width: 80px;
+            }
+
+            .sidebar .brand h2,
+            .sidebar .user-profile span {
+                display: none;
+            }
+
+            .sidebar .nav-menu li {
+                padding: 10px;
+                font-size: 11px;
+            }
+
+            .sidebar .nav-menu li svg {
+                width: 18px;
+                height: 18px;
+            }
+
+            .main-content {
+                margin-left: 80px;
+            }
         }
 
         @media screen and (max-width: 768px) {
@@ -527,48 +621,170 @@
                 z-index: 2000;
                 width: 260px !important;
             }
+
             .sidebar.active {
                 transform: translateX(0);
             }
-            .sidebar .brand h2, .sidebar .nav-menu span { display: block !important; }
-            .main-content { margin-left: 0; padding: 15px; }
-            .dashboard-grid { grid-template-columns: 1fr; }
-            .header { flex-direction: column; align-items: flex-start; gap: 15px; }
-            #timeToggles { width: 100%; justify-content: space-between; }
-            .hamburger { display: block !important; }
-            .overlay-bg { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1500; }
-            .overlay-bg.active { display: block; }
-            
-            .summary-cards { flex-direction: column; }
-            .summary-cards > div { width: 100%; border: none !important; border-bottom: 1px solid rgba(255,255,255,0.05) !important; padding: 15px 0; }
-            
-            .sidebar { 
-                display: flex !important; 
+
+            .sidebar .brand h2,
+            .sidebar .nav-menu span {
+                display: block !important;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 15px;
+            }
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            #timeToggles {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .hamburger {
+                display: block !important;
+            }
+
+            .overlay-bg {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 1500;
+            }
+
+            .overlay-bg.active {
+                display: block;
+            }
+
+            .summary-cards {
+                flex-direction: column;
+            }
+
+            .summary-cards>div {
+                width: 100%;
+                border: none !important;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+                padding: 15px 0;
+            }
+
+            .sidebar {
+                display: flex !important;
                 transform: translateX(-100%);
                 z-index: 2000;
                 width: 260px !important;
             }
+
             .sidebar.active {
                 transform: translateX(0);
             }
-            .sidebar .brand h2, .sidebar .nav-menu span { display: block !important; }
-            .main-content { margin-left: 0; padding: 15px; }
-            .dashboard-grid { grid-template-columns: 1fr; }
-            
+
+            .sidebar .brand h2,
+            .sidebar .nav-menu span {
+                display: block !important;
+            }
+
+            .main-content {
+                margin-left: 0;
+                padding: 15px;
+            }
+
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+
             /* Vertical Header & Options Stack (Centered for Mobile) */
-            .header { flex-direction: column; align-items: center; text-align: center; gap: 25px; width: 100%; }
-            .header-left { flex-direction: column; align-items: center; width: 100%; gap: 20px; }
-            .header-left > div { width: 100%; flex-direction: column; align-items: center !important; gap: 10px; }
-            .header-left .btn { width: 100%; justify-content: center; }
-            .date-label { width: 100%; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; text-align: center; }
-            .date-label input { width: 100%; text-align: center; }
-            
-            #timeToggles { width: 100%; flex-direction: column; gap: 8px; background: transparent; padding: 0; }
-            #timeToggles button { width: 100%; text-align: center; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); }
-            
-            .hamburger { display: block !important; }
-            .overlay-bg { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1500; }
-            .overlay-bg.active { display: block; }
+            .header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 25px;
+                width: 100%;
+            }
+
+            .header-left {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+                gap: 20px;
+            }
+
+            .header-left>div {
+                width: 100%;
+                flex-direction: column;
+                align-items: center !important;
+                gap: 10px;
+            }
+
+            .header-left .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .date-label {
+                width: 100%;
+                background: rgba(255, 255, 255, 0.05);
+                padding: 10px;
+                border-radius: 8px;
+                text-align: center;
+            }
+
+            .date-label input {
+                width: 100%;
+                text-align: center;
+            }
+
+            #timeToggles {
+                width: auto;
+                flex-direction: row;
+                justify-content: center;
+                gap: 8px;
+                background: rgba(255, 255, 255, 0.05);
+                padding: 4px;
+                border-radius: 20px;
+                margin: 0 auto;
+            }
+
+            #timeToggles button {
+                width: auto;
+                text-align: center;
+                padding: 8px 16px;
+                border-radius: 16px;
+                border: none;
+                font-size: 11px;
+            }
+
+            .hamburger {
+                display: block !important;
+            }
+
+            .overlay-bg {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 1500;
+            }
+
+            .overlay-bg.active {
+                display: block;
+            }
         }
 
         /* Removed Bottom Nav Styles */
@@ -586,21 +802,23 @@
             border-radius: 8px;
             border: 1px solid var(--border-color);
         }
-        
-
     </style>
 </head>
+
 <body>
 
     <!-- Login Overlay -->
-    <div id="loginOverlay" style="position:fixed; top:0; left:0; width:100%; height:100%; background:var(--bg-main); z-index:1000; display:flex; align-items:center; justify-content:center; backdrop-filter:blur(10px);">
-        <div class="card" style="width:350px; padding:30px; border:1px solid var(--accent-cyan); box-shadow: 0 0 20px rgba(44, 230, 197, 0.2);">
+    <div id="loginOverlay"
+        style="position:fixed; top:0; left:0; width:100%; height:100%; background:var(--bg-main); z-index:1000; display:flex; align-items:center; justify-content:center; backdrop-filter:blur(10px);">
+        <div class="card"
+            style="width:350px; padding:30px; border:1px solid var(--accent-cyan); box-shadow: 0 0 20px rgba(44, 230, 197, 0.2);">
             <div class="brand" style="margin-bottom:30px;">
                 <h2 style="color:var(--accent-cyan);">FUSION LOGIN</h2>
             </div>
             <div class="input-group">
                 <label>User Role</label>
-                <select id="userRole" style="width:100%; padding:10px; background:rgba(0,0,0,0.2); border:1px solid rgba(255,255,255,0.1); color:white; border-radius:4px; outline:none;">
+                <select id="userRole"
+                    style="width:100%; padding:10px; background:rgba(0,0,0,0.2); border:1px solid rgba(255,255,255,0.1); color:white; border-radius:4px; outline:none;">
                     <option value="admin">Administrator (Full Access)</option>
                     <option value="user">User (Read Only)</option>
                 </select>
@@ -617,7 +835,11 @@
     <!-- Mobile Navigation Overlay -->
     <div class="overlay-bg" id="mobileOverlay" onclick="toggleMobileMenu()"></div>
     <div class="hamburger" onclick="toggleMobileMenu()">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
     </div>
 
     <!-- Sidebar -->
@@ -628,19 +850,30 @@
         </div>
         <ul class="nav-menu">
             <li class="active">
-                <svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+                <svg viewBox="0 0 24 24">
+                    <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z" />
+                </svg>
                 Dashboard
             </li>
             <li onclick="alert('Cost page coming soon.')">
-                <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 14h-3v3h-2v-3H8v-2h3v-3h2v3h3v2z"/></svg>
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 14h-3v3h-2v-3H8v-2h3v-3h2v3h3v2z" />
+                </svg>
                 Cost
             </li>
             <li onclick="toggleSettings()">
-                <svg viewBox="0 0 24 24"><path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.06-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.73,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.06,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 C13.96,21.83,14.16,22,14.4,22h3.84c0.24,0,0.43-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.49-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/></svg>
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.06-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.73,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.06,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 C13.96,21.83,14.16,22,14.4,22h3.84c0.24,0,0.43-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.49-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z" />
+                </svg>
                 ESP32 Setup
             </li>
             <li onclick="toggleProfile()">
-                <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+                <svg viewBox="0 0 24 24">
+                    <path
+                        d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                </svg>
                 Profile
             </li>
         </ul>
@@ -650,9 +883,10 @@
     <div class="main-content">
         <div class="header">
             <div class="header-left">
-                <div style="display:flex; align-items:baseline; gap:15px;">
+                <div id="headerTitleWrapper">
                     <h1>Energy Dashboard</h1>
-                    <span id="connectionStatus" style="font-size:12px; padding:4px 8px; border-radius:12px; background:rgba(255,255,255,0.1); color:var(--text-muted);">Connecting...</span>
+                    <span id="connectionStatus"
+                        style="font-size:12px; padding:4px 8px; border-radius:12px; background:rgba(255,255,255,0.1); color:var(--text-muted); width:fit-content;">Connecting...</span>
                 </div>
                 <div class="toggle-group" id="timeToggles">
                     <button class="active">TODAY</button>
@@ -660,54 +894,71 @@
                     <button>YEAR</button>
                 </div>
                 <!-- Theme Toggle -->
-                <button onclick="toggleTheme()" class="btn" style="width:auto; padding:8px 15px; margin-top:0; font-size:12px; display:flex; align-items:center; gap:8px;">
+                <button onclick="toggleTheme()" class="btn"
+                    style="width:auto; padding:8px 15px; margin-top:0; font-size:12px; display:flex; align-items:center; gap:8px;">
                     <span id="themeLabel">Light Mode</span>
                 </button>
             </div>
             <div class="date-label" style="display:flex; align-items:center;">
-                <input type="date" id="calendarInput" style="background:transparent; border:none; color:rgba(255,255,255,0.8); font-family:'Inter', sans-serif; font-size:16px; font-weight:500; padding:4px; outline:none; cursor:pointer;" />
+                <input type="date" id="calendarInput"
+                    style="background:transparent; border:none; color:rgba(255,255,255,0.8); font-family:'Inter', sans-serif; font-size:16px; font-weight:500; padding:4px; outline:none; cursor:pointer;" />
             </div>
         </div>
 
-        <div id="alertBanner" class="alert-banner" style="display: none; background: rgba(253, 79, 100, 0.2); border: 2px solid var(--accent-red);">
-            <svg style="width:24px;height:24px;fill:var(--accent-red)" viewBox="0 0 24 24"><path d="M12 2L1 21h22L12 2zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z"/></svg>
+        <div id="alertBanner" class="alert-banner"
+            style="display: none; background: rgba(253, 79, 100, 0.2); border: 2px solid var(--accent-red);">
+            <svg style="width:24px;height:24px;fill:var(--accent-red)" viewBox="0 0 24 24">
+                <path d="M12 2L1 21h22L12 2zm1 14h-2v-2h2v2zm0-4h-2V7h2v5z" />
+            </svg>
             <span id="alertBannerText">HIGH POWER USAGE DETECTED! Approaching overload threshold.</span>
         </div>
 
         <div class="dashboard-grid" id="dashboardGrid" style="transition: opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);">
-            
-            <!-- 0. Live Sensor Readings Header -->
-            <div class="card" style="grid-column: 1 / -1; display:flex; justify-content:space-around; align-items:center; flex-wrap:wrap; background: linear-gradient(90deg, rgba(26,27,65,0.7) 0%, rgba(35,39,77,0.8) 100%);">
-                <div style="text-align:center;">
-                    <div style="font-size:12px; color:var(--text-muted); margin-bottom:5px;">REAL-TIME VOLTAGE</div>
-                    <div style="font-size:32px; font-weight:bold; color:var(--accent-yellow);"><span id="liveVoltage">0.0</span> <span style="font-size:18px;">V</span></div>
+
+            <!-- 0. Live Sensor Readings (3 Horizontal Lines) -->
+            <div style="grid-column: 1 / -1; display:flex; flex-direction:column; gap:12px;">
+                <div class="card"
+                    style="flex-direction:row; justify-content:space-between; align-items:center; padding:15px 25px; min-height:auto; border-left:4px solid var(--accent-yellow);">
+                    <div style="font-size:12px; font-weight:600; color:var(--text-muted); letter-spacing:1px;">VOLTAGE
+                    </div>
+                    <div style="font-size:24px; font-weight:bold; color:var(--accent-yellow);"><span
+                            id="liveVoltage">0.0</span> <span style="font-size:14px;">V</span></div>
                 </div>
-                <div style="width:1px; height:50px; background:rgba(255,255,255,0.1);"></div>
-                <div style="text-align:center;">
-                    <div style="font-size:12px; color:var(--text-muted); margin-bottom:5px;">LIVE CURRENT</div>
-                    <div style="font-size:32px; font-weight:bold; color:var(--accent-cyan);"><span id="liveCurrent">0.00</span> <span style="font-size:18px;">A</span></div>
+                <div class="card"
+                    style="flex-direction:row; justify-content:space-between; align-items:center; padding:15px 25px; min-height:auto; border-left:4px solid var(--accent-cyan);">
+                    <div style="font-size:12px; font-weight:600; color:var(--text-muted); letter-spacing:1px;">CURRENT
+                    </div>
+                    <div style="font-size:24px; font-weight:bold; color:var(--accent-cyan);"><span
+                            id="liveCurrent">0.00</span> <span style="font-size:14px;">A</span></div>
                 </div>
-                <div style="width:1px; height:50px; background:rgba(255,255,255,0.1);"></div>
-                <div style="text-align:center;">
-                    <div style="font-size:12px; color:var(--text-muted); margin-bottom:5px;">ACTIVE POWER</div>
-                    <div style="font-size:32px; font-weight:bold; color:var(--accent-red);"><span id="livePower">0.0</span> <span style="font-size:18px;">W</span></div>
+                <div class="card"
+                    style="flex-direction:row; justify-content:space-between; align-items:center; padding:15px 25px; min-height:auto; border-left:4px solid var(--accent-red);">
+                    <div style="font-size:12px; font-weight:600; color:var(--text-muted); letter-spacing:1px;">POWER
+                    </div>
+                    <div style="font-size:24px; font-weight:bold; color:var(--accent-red);"><span
+                            id="livePower">0.0</span> <span style="font-size:14px;">W</span></div>
                 </div>
             </div>
 
             <!-- AI PREDICTION & RELAY CONTROL -->
-            <div class="card" style="grid-column: 1 / -1; display:grid; grid-template-columns: 1fr 1fr; gap:20px; align-items:center;">
+            <div class="card"
+                style="grid-column: 1 / -1; display:grid; grid-template-columns: 1fr 1fr; gap:20px; align-items:center;">
                 <div>
                     <div class="card-title">AI OVERLOAD PREDICTION</div>
                     <div style="display:flex; align-items:center; gap:15px;">
-                        <div id="aiStatusIcon" style="width:15px; height:15px; border-radius:50%; background:var(--accent-green);"></div>
-                        <div style="font-size:18px; font-weight:600;"><span id="aiPredictionText">SAFE - NO OVERLOAD RISK</span></div>
+                        <div id="aiStatusIcon"
+                            style="width:15px; height:15px; border-radius:50%; background:var(--accent-green);"></div>
+                        <div style="font-size:18px; font-weight:600;"><span id="aiPredictionText">SAFE - NO OVERLOAD
+                                RISK</span></div>
                     </div>
-                    <div style="font-size:12px; color:var(--text-muted); margin-top:5px;">Predicted Power (5 min): <span id="predictedPowerValue">0.0</span> W</div>
+                    <div style="font-size:12px; color:var(--text-muted); margin-top:5px;">Predicted Power (5 min): <span
+                            id="predictedPowerValue">0.0</span> W</div>
                 </div>
                 <div style="text-align:right;">
                     <div class="card-title">AUTO-CUTOFF RELAY</div>
                     <div style="display:flex; align-items:center; justify-content:flex-end; gap:15px;">
-                        <span id="relayStatusText" style="font-weight:600; color:var(--accent-cyan); font-size:14px;">LOAD ON</span>
+                        <span id="relayStatusText"
+                            style="font-weight:600; color:var(--accent-cyan); font-size:14px;">LOAD ON</span>
                         <label class="switch">
                             <input type="checkbox" id="relayToggle" checked onchange="handleRelayToggle()">
                             <span class="slider"></span>
@@ -727,7 +978,9 @@
                     </div>
                 </div>
                 <div class="legend" style="justify-content: center;">
-                    <div class="legend-item"><div class="dot" style="background: var(--accent-cyan);"></div> Electricity Only</div>
+                    <div class="legend-item">
+                        <div class="dot" style="background: var(--accent-cyan);"></div> Electricity Only
+                    </div>
                 </div>
             </div>
 
@@ -742,7 +995,8 @@
                         <div class="increase-text">
                             ▲ <span id="percentIncrease">0.00%</span>
                         </div>
-                        <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase;">INCREASE IN COST</div>
+                        <div style="font-size: 11px; color: var(--text-muted); text-transform: uppercase;">INCREASE IN
+                            COST</div>
                     </div>
                 </div>
             </div>
@@ -782,7 +1036,7 @@
             <!-- 6. Carbon Footprint -->
             <div class="card">
                 <div class="card-title">CARBON FOOTPRINT</div>
-                
+
                 <div class="progress-group">
                     <div class="progress-label">
                         <span>Emission</span>
@@ -792,7 +1046,8 @@
                         <span>Predicted</span>
                     </div>
                     <div class="progress-bar">
-                        <div class="progress-fill" id="emissionFill" style="width: 25%; background: var(--text-muted);"></div>
+                        <div class="progress-fill" id="emissionFill" style="width: 25%; background: var(--text-muted);">
+                        </div>
                     </div>
                     <div class="progress-subtext" style="margin-top: 5px;">
                         <span><span id="emissionVal">36.4</span> Kg of CO2</span>
@@ -806,7 +1061,8 @@
                         <span>Goal</span>
                     </div>
                     <div class="progress-bar">
-                        <div class="progress-fill" id="greenFill" style="width: 60%; background: var(--accent-green);"></div>
+                        <div class="progress-fill" id="greenFill" style="width: 60%; background: var(--accent-green);">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -822,7 +1078,9 @@
                 <div class="profile-left">
                     <div class="avatar-circle">JD</div>
                     <button class="btn" style="padding: 6px; font-size: 11px;">Change Photo</button>
-                    <a href="#" onclick="handleLogout()" style="color:var(--accent-red); font-size:12px; margin-top:20px; text-decoration:none;">Log Out</a>
+                    <a href="#" onclick="handleLogout()"
+                        style="color:var(--accent-red); font-size:12px; margin-top:20px; text-decoration:none;">Log
+                        Out</a>
                 </div>
                 <div class="profile-right">
                     <h4>Personal Information</h4>
@@ -834,7 +1092,7 @@
                         <label>Email Address</label>
                         <input type="email" value="john.doe@meditrust.example.com">
                     </div>
-                    
+
                     <h4 style="margin-top: 30px;">Preferences</h4>
                     <div class="input-group" style="display:flex; justify-content:space-between; align-items:center;">
                         <label style="margin:0;">Receive Email Alerts for High Usage</label>
@@ -844,8 +1102,9 @@
                         <label style="margin:0;">Dark Theme Mode</label>
                         <input type="checkbox" style="width:auto; cursor:pointer;" checked>
                     </div>
-                    
-                    <button class="btn" onclick="toggleProfile()" style="margin-top: 30px; width: auto; float: right;">Save Preferences</button>
+
+                    <button class="btn" onclick="toggleProfile()"
+                        style="margin-top: 30px; width: auto; float: right;">Save Preferences</button>
                 </div>
             </div>
         </div>
@@ -1046,7 +1305,7 @@
             let ssid = document.getElementById('wifiSsid') ? document.getElementById('wifiSsid').value : '';
             let pass = document.getElementById('wifiPass') ? document.getElementById('wifiPass').value : '';
             localStorage.setItem("esp32Ip", espIp);
-            
+
             if (ssid) {
                 // Send credentials directly to the ESP32
                 fetch(`http://${espIp}/wifi`, {
@@ -1056,13 +1315,13 @@
                     },
                     body: JSON.stringify({ ssid: ssid, password: pass })
                 })
-                .then(res => {
-                    alert("WiFi Config sent! The ESP32 is now connecting to: " + ssid);
-                    toggleSettings();
-                })
-                .catch(err => {
-                    alert("Error sending WiFi config to ESP32.\nMake sure you are connected to the ESP32's Access Point or Local IP.");
-                });
+                    .then(res => {
+                        alert("WiFi Config sent! The ESP32 is now connecting to: " + ssid);
+                        toggleSettings();
+                    })
+                    .catch(err => {
+                        alert("Error sending WiFi config to ESP32.\nMake sure you are connected to the ESP32's Access Point or Local IP.");
+                    });
             } else {
                 alert("ESP32 IP Config saved: " + espIp);
                 toggleSettings();
@@ -1078,11 +1337,11 @@
             const grid = document.getElementById('dashboardGrid');
             const toggles = document.getElementById('timeToggles');
             const calInput = document.getElementById('calendarInput');
-            
+
             const opacity = isActive ? '1' : '0.25';
             const pointerEvents = isActive ? 'auto' : 'none';
             const filter = isActive ? 'none' : 'grayscale(0.6)';
-            
+
             if (grid) {
                 grid.style.opacity = opacity;
                 grid.style.pointerEvents = pointerEvents;
@@ -1106,8 +1365,8 @@
                 .then(res => res.json())
                 .then(data => {
                     const statusEl = document.getElementById("connectionStatus");
-                    if(statusEl) {
-                        statusEl.innerText = "● Connected";
+                    if (statusEl) {
+                        statusEl.innerText = "● Cloud is Live";
                         statusEl.style.color = "var(--accent-green)";
                         statusEl.style.background = "rgba(164, 206, 78, 0.1)";
                     }
@@ -1115,8 +1374,8 @@
                 })
                 .catch(err => {
                     const statusEl = document.getElementById("connectionStatus");
-                    if(statusEl) {
-                        statusEl.innerText = "○ Disconnected";
+                    if (statusEl) {
+                        statusEl.innerText = "○ Offline";
                         statusEl.style.color = "var(--accent-red)";
                         statusEl.style.background = "rgba(253, 79, 100, 0.15)";
                     }
@@ -1129,11 +1388,11 @@
             // Example data payload expected from ESP32: { power: 1200.5, voltage: 230, current: 5.2 }
             if (data.power) {
                 // Assuming power is in Watts, we accumulate kWh over 3 seconds: W / 1000 * (3/3600)
-                currentKwh += (data.power / 1000) * (3/3600);
+                currentKwh += (data.power / 1000) * (3 / 3600);
             }
             if (data.voltage && data.current) {
                 // Update cost depending on usage
-                electricityCost += (data.voltage * data.current / 1000) * (3/3600) * 0.15; // assuming $0.15/kWh
+                electricityCost += (data.voltage * data.current / 1000) * (3 / 3600) * 0.15; // assuming $0.15/kWh
             }
 
             // Update the live sensor reading headers directly
@@ -1146,7 +1405,7 @@
             const costValEl = document.getElementById('totalCostVal');
             costValEl.innerText = '$' + electricityCost.toFixed(0);
             costValEl.style.color = "white";
-            
+
             costChart.data.datasets[0].data = [100]; // Full circle for electricity
             costChart.update();
 
@@ -1158,7 +1417,7 @@
 
             // 3. Usage estimate point addition
             document.getElementById('kwhTillNow').innerText = currentKwh.toFixed(2) + ' kWh';
-            usageChart.data.datasets[0].data = [currentKwh*0.2, currentKwh*0.5, currentKwh*0.7, currentKwh*0.9, currentKwh];
+            usageChart.data.datasets[0].data = [currentKwh * 0.2, currentKwh * 0.5, currentKwh * 0.7, currentKwh * 0.9, currentKwh];
             usageChart.update();
 
             // 4. Appliances Breakdown (derived from live power)
@@ -1170,7 +1429,7 @@
 
             // 5. Intensity 
             if (currentKwh > 0 || data.power) {
-                let intensVal = Math.min(100, currentKwh * 1.5); 
+                let intensVal = Math.min(100, currentKwh * 1.5);
                 document.getElementById('intensityVal').innerText = intensVal.toFixed(0);
                 intensChart.data.datasets[0].data[0] = intensVal;
                 intensChart.data.datasets[0].data[1] = 100 - intensVal;
@@ -1181,7 +1440,7 @@
             let emStr = (currentKwh * 0.4).toFixed(2); // ~0.4 kg CO2 per kWh
             document.getElementById('emissionVal').innerText = emStr;
             document.getElementById('emissionFill').style.width = Math.min(100, (emStr / 181.8 * 100)) + '%';
-            
+
             // Connection Sync Monitor (Internal)
             checkConnectionSync();
         }
@@ -1194,6 +1453,11 @@
                     costValEl.innerText = 'OFFLINE';
                     costValEl.style.color = "var(--accent-red)";
                     costValEl.style.fontSize = "16px";
+                }
+                const statusEl = document.getElementById("connectionStatus");
+                if (statusEl) {
+                    statusEl.innerText = "○ Offline";
+                    statusEl.style.color = "var(--accent-red)";
                 }
                 if (window.costChart) {
                     costChart.data.datasets[0].data = [0];
@@ -1223,7 +1487,7 @@
             appId: "1:654234538836:web:d9c00b5c18604b6df36ec1",
             measurementId: "G-SESDKME8W5"
         };
-        
+
         firebase.initializeApp(firebaseConfig);
         const db = firebase.database();
         const dataRef = db.ref('energy_monitoring');
@@ -1246,7 +1510,7 @@
         function handleRelayToggle() {
             const isChecked = document.getElementById('relayToggle').checked;
             const statusText = document.getElementById('relayStatusText');
-            
+
             if (isChecked) {
                 statusText.innerText = "LOAD ON";
                 statusText.style.color = "var(--accent-cyan)";
@@ -1267,7 +1531,7 @@
         function handleLogin() {
             const role = document.getElementById('userRole').value;
             const pin = document.getElementById('accessCode').value;
-            
+
             if (pin === "1234") {
                 userRole = role;
                 document.getElementById('loginOverlay').style.display = 'none';
@@ -1288,7 +1552,7 @@
             controls.forEach(el => {
                 if (el) el.disabled = (userRole === 'user');
             });
-            
+
             if (userRole === 'user') {
                 document.getElementById('relayStatusText').innerText += " (Locked)";
             }
@@ -1348,9 +1612,9 @@
             document.getElementById('liveVoltage').innerText = data.voltage ? data.voltage.toFixed(1) : "0.0";
             document.getElementById('liveCurrent').innerText = data.current ? data.current.toFixed(2) : "0.00";
             document.getElementById('livePower').innerText = data.power ? data.power.toFixed(1) : "0.0";
-            
+
             const statusEl = document.getElementById("connectionStatus");
-            if(statusEl) {
+            if (statusEl) {
                 statusEl.innerText = "● Cloud Live";
                 statusEl.style.color = "var(--accent-cyan)";
                 statusEl.style.background = "rgba(44, 230, 197, 0.1)";
@@ -1402,10 +1666,10 @@
             if (usageChart.data.datasets[0].data.length > 20) usageChart.data.datasets[0].data.shift();
             usageChart.update();
 
-            document.getElementById('kwhTillNow').innerText = ((p / 1000) * (1/60)).toFixed(4) + " kWh";
+            document.getElementById('kwhTillNow').innerText = ((p / 1000) * (1 / 60)).toFixed(4) + " kWh";
 
             // Appliance Update
-            appsChart.data.datasets[0].data = [p*0.4, p*0.2, p*0.15, p*0.15, p*0.1];
+            appsChart.data.datasets[0].data = [p * 0.4, p * 0.2, p * 0.15, p * 0.15, p * 0.1];
             appsChart.update();
 
             // Intensity Update
@@ -1418,14 +1682,14 @@
         // Adjustable Threshold & Settings Persistence
         let OVERLOAD_THRESHOLD = parseInt(localStorage.getItem('overloadThreshold')) || 2000;
         let soundEnabled = localStorage.getItem('soundEnabled') !== 'false';
-        
+
         document.getElementById('thresholdInput').value = OVERLOAD_THRESHOLD;
         document.getElementById('soundToggle').checked = soundEnabled;
 
         function saveDashboardSettings() {
             OVERLOAD_THRESHOLD = parseInt(document.getElementById('thresholdInput').value) || 2000;
             soundEnabled = document.getElementById('soundToggle').checked;
-            
+
             localStorage.setItem('overloadThreshold', OVERLOAD_THRESHOLD);
             localStorage.setItem('soundEnabled', soundEnabled);
             alert("Settings saved locally!");
@@ -1455,7 +1719,7 @@
             const isLight = document.body.classList.contains('light-mode');
             document.getElementById('themeLabel').innerText = isLight ? "Dark Mode" : "Light Mode";
             localStorage.setItem('theme', isLight ? 'light' : 'dark');
-            
+
             // Update charts for theme
             const textColor = isLight ? '#1e293b' : 'rgba(255,255,255,0.5)';
             Chart.defaults.color = textColor;
@@ -1516,4 +1780,5 @@
         });
     </script>
 </body>
+
 </html>
