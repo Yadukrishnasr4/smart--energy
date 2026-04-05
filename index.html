@@ -25,7 +25,7 @@
             --accent-purple: #ab46d2;
             --accent-green: #a4ce4e;
             --border-color: rgba(255, 255, 255, 0.05);
-            --sidebar-width: 260px;
+            --sidebar-width: 80px;
         }
 
         body.light-mode {
@@ -113,14 +113,16 @@
             background: var(--bg-sidebar);
             display: flex;
             flex-direction: column;
-            padding: 30px 0;
-            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
-            z-index: 10;
-            transition: width 0.3s, transform 0.3s;
+            padding: 20px 0;
+            box-shadow: 2px 0 30px rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             position: fixed;
-            height: 100vh;
-            top: 0;
-            left: 0;
+            height: calc(100vh - 40px);
+            top: 20px;
+            left: 20px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .brand {
@@ -146,18 +148,26 @@
         .nav-menu {
             list-style: none;
             flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
         }
 
         .nav-menu li {
-            padding: 16px 25px;
+            padding: 12px;
             cursor: pointer;
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 15px;
+            justify-content: center;
+            gap: 5px;
             color: var(--text-muted);
-            font-size: 14px;
-            border-left: 3px solid transparent;
+            font-size: 10px;
+            border-radius: 12px;
             transition: all 0.3s;
+            width: 60px;
+            text-align: center;
         }
 
         .nav-menu li:hover {
@@ -166,9 +176,9 @@
         }
 
         .nav-menu li.active {
-            color: var(--text-active);
-            border-left-color: var(--accent-cyan);
-            background: rgba(255, 255, 255, 0.05);
+            color: var(--accent-cyan);
+            background: rgba(44, 230, 197, 0.1);
+            transform: scale(1.1);
         }
 
         .nav-menu li svg {
@@ -181,10 +191,10 @@
         /* Main Content Area */
         .main-content {
             flex: 1;
-            margin-left: var(--sidebar-width);
+            margin-left: calc(var(--sidebar-width) + 40px);
             padding: 40px;
             min-height: 100vh;
-            transition: margin-left 0.3s;
+            transition: all 0.3s;
             overflow-y: auto;
             position: relative;
         }
@@ -844,9 +854,13 @@
 
     <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
-        <div class="brand">
-            <h2>SMART ELECTRICITY</h2>
-            <span class="beta">BETA</span>
+        <div class="brand" style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; padding: 40px 0;">
+            <div style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple)); border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(44, 230, 197, 0.3);">
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="white">
+                    <path d="M13 10h7l-9 13v-9H4l9-13z"/>
+                </svg>
+            </div>
+            <span class="beta" style="margin-top: 0;">BETA</span>
         </div>
         <ul class="nav-menu">
             <li class="active">
