@@ -24,6 +24,7 @@
             --accent-purple: #ab46d2;
             --accent-green: #a4ce4e;
             --border-color: rgba(255,255,255,0.05);
+            --sidebar-width: 260px;
         }
 
         body.light-mode {
@@ -99,13 +100,18 @@
 
         /* Sidebar */
         .sidebar {
-            width: 250px;
+            width: var(--sidebar-width);
             background: var(--bg-sidebar);
             display: flex;
             flex-direction: column;
             padding: 30px 0;
             box-shadow: 2px 0 10px rgba(0,0,0,0.3);
             z-index: 10;
+            transition: width 0.3s, transform 0.3s;
+            position: fixed;
+            height: 100vh;
+            top: 0;
+            left: 0;
         }
 
         .brand {
@@ -163,10 +169,13 @@
             fill: currentColor;
         }
 
-        /* Main Content */
+        /* Main Content Area */
         .main-content {
             flex: 1;
+            margin-left: var(--sidebar-width);
             padding: 40px;
+            min-height: 100vh;
+            transition: margin-left 0.3s;
             overflow-y: auto;
             position: relative;
         }
@@ -503,6 +512,50 @@
             opacity: 0.5;
             cursor: not-allowed;
         }
+
+        /* Responsive Media Queries */
+        @media screen and (max-width: 1024px) {
+            :root { --sidebar-width: 80px; }
+            .sidebar .brand h2, .sidebar .nav-menu span, .sidebar .user-profile span { display: none; }
+            .sidebar .nav-menu li { justify-content: center; padding: 15px; }
+            .main-content { margin-left: 80px; }
+        }
+
+        @media screen and (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+                z-index: 2000;
+                width: 260px !important;
+            }
+            .sidebar.active {
+                transform: translateX(0);
+            }
+            .sidebar .brand h2, .sidebar .nav-menu span { display: block !important; }
+            .main-content { margin-left: 0; padding: 15px; }
+            .dashboard-grid { grid-template-columns: 1fr; }
+            .header { flex-direction: column; align-items: flex-start; gap: 15px; }
+            #timeToggles { width: 100%; justify-content: space-between; }
+            .hamburger { display: block !important; }
+            .overlay-bg { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1500; }
+            .overlay-bg.active { display: block; }
+            
+            .summary-cards { flex-direction: column; }
+            .summary-cards > div { width: 100%; border: none !important; border-bottom: 1px solid rgba(255,255,255,0.05) !important; padding: 15px 0; }
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            padding: 10px;
+            color: var(--text-active);
+            position: fixed;
+            top: 15px;
+            left: 15px;
+            z-index: 2001;
+            background: var(--bg-card);
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
         
 
     </style>
@@ -513,7 +566,7 @@
     <div id="loginOverlay" style="position:fixed; top:0; left:0; width:100%; height:100%; background:var(--bg-main); z-index:1000; display:flex; align-items:center; justify-content:center; backdrop-filter:blur(10px);">
         <div class="card" style="width:350px; padding:30px; border:1px solid var(--accent-cyan); box-shadow: 0 0 20px rgba(44, 230, 197, 0.2);">
             <div class="brand" style="margin-bottom:30px;">
-                <h2 style="color:var(--accent-cyan);">SMART ENERGY LOGIN</h2>
+                <h2 style="color:var(--accent-cyan);">FUSION LOGIN</h2>
             </div>
             <div class="input-group">
                 <label>User Role</label>
@@ -531,8 +584,14 @@
         </div>
     </div>
 
+    <!-- Mobile Navigation Overlay -->
+    <div class="overlay-bg" id="mobileOverlay" onclick="toggleMobileMenu()"></div>
+    <div class="hamburger" onclick="toggleMobileMenu()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+    </div>
+
     <!-- Sidebar -->
-    <div class="sidebar">
+    <div class="sidebar" id="sidebar">
         <div class="brand">
             <h2>SMART ELECTRICITY</h2>
             <span class="beta">BETA</span>
@@ -1379,7 +1438,22 @@
                 e.target.classList.add('active');
             });
         });
-        
+
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            document.getElementById('sidebar').classList.toggle('active');
+            document.getElementById('mobileOverlay').classList.toggle('active');
+        }
+
+        // Close menu on nav click (mobile)
+        document.querySelectorAll('.sidebar li').forEach(item => {
+            item.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    document.getElementById('sidebar').classList.remove('active');
+                    document.getElementById('mobileOverlay').classList.remove('active');
+                }
+            });
+        });
     </script>
 </body>
 </html>
