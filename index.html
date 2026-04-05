@@ -555,16 +555,16 @@
             .main-content { margin-left: 0; padding: 15px; }
             .dashboard-grid { grid-template-columns: 1fr; }
             
-            /* Vertical Header & Options Stack */
-            .header { flex-direction: column; align-items: flex-start; gap: 25px; width: 100%; }
-            .header-left { flex-direction: column; align-items: flex-start; width: 100%; gap: 20px; }
-            .header-left > div { width: 100%; flex-direction: column; align-items: flex-start !important; gap: 10px; }
-            .header-left .btn { width: 100%; justify-content: flex-start; }
-            .date-label { width: 100%; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; }
-            .date-label input { width: 100%; }
+            /* Vertical Header & Options Stack (Centered for Mobile) */
+            .header { flex-direction: column; align-items: center; text-align: center; gap: 25px; width: 100%; }
+            .header-left { flex-direction: column; align-items: center; width: 100%; gap: 20px; }
+            .header-left > div { width: 100%; flex-direction: column; align-items: center !important; gap: 10px; }
+            .header-left .btn { width: 100%; justify-content: center; }
+            .date-label { width: 100%; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; text-align: center; }
+            .date-label input { width: 100%; text-align: center; }
             
             #timeToggles { width: 100%; flex-direction: column; gap: 8px; background: transparent; padding: 0; }
-            #timeToggles button { width: 100%; text-align: left; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); }
+            #timeToggles button { width: 100%; text-align: center; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); }
             
             .hamburger { display: block !important; }
             .overlay-bg { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1500; }
