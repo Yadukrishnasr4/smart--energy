@@ -542,47 +542,36 @@
             .summary-cards { flex-direction: column; }
             .summary-cards > div { width: 100%; border: none !important; border-bottom: 1px solid rgba(255,255,255,0.05) !important; padding: 15px 0; }
             
-            .bottom-nav { display: flex; }
-            .sidebar { display: none !important; }
-            .hamburger { display: none !important; }
-            .main-content { margin-bottom: 70px; }
+            .sidebar { 
+                display: flex !important; 
+                transform: translateX(-100%);
+                z-index: 2000;
+                width: 260px !important;
+            }
+            .sidebar.active {
+                transform: translateX(0);
+            }
+            .sidebar .brand h2, .sidebar .nav-menu span { display: block !important; }
+            .main-content { margin-left: 0; padding: 15px; }
+            .dashboard-grid { grid-template-columns: 1fr; }
+            
+            /* Vertical Header & Options Stack */
+            .header { flex-direction: column; align-items: flex-start; gap: 25px; width: 100%; }
+            .header-left { flex-direction: column; align-items: flex-start; width: 100%; gap: 20px; }
+            .header-left > div { width: 100%; flex-direction: column; align-items: flex-start !important; gap: 10px; }
+            .header-left .btn { width: 100%; justify-content: flex-start; }
+            .date-label { width: 100%; background: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; }
+            .date-label input { width: 100%; }
+            
+            #timeToggles { width: 100%; flex-direction: column; gap: 8px; background: transparent; padding: 0; }
+            #timeToggles button { width: 100%; text-align: left; padding: 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); }
+            
+            .hamburger { display: block !important; }
+            .overlay-bg { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1500; }
+            .overlay-bg.active { display: block; }
         }
 
-        /* Bottom Navigation Bar */
-        .bottom-nav {
-            display: none;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: var(--bg-card);
-            border-top: 1px solid var(--border-color);
-            z-index: 2005;
-            flex-direction: row;
-            justify-content: space-around;
-            padding: 10px 0;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 -5px 15px rgba(0,0,0,0.2);
-        }
-        .bottom-nav .nav-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
-            color: var(--text-muted);
-            font-size: 10px;
-            cursor: pointer;
-            transition: 0.3s;
-            flex: 1;
-        }
-        .bottom-nav .nav-item svg {
-            width: 22px;
-            height: 22px;
-            fill: currentColor;
-        }
-        .bottom-nav .nav-item.active {
-            color: var(--accent-cyan);
-        }
+        /* Removed Bottom Nav Styles */
 
         .hamburger {
             display: none;
@@ -622,26 +611,6 @@
                 <small style="color:var(--text-muted); font-size:10px;">Default: 1234</small>
             </div>
             <button class="btn" onclick="handleLogin()">ACCESS DASHBOARD</button>
-        </div>
-    </div>
-
-    <!-- Bottom Navigation (Mobile Only) -->
-    <div class="bottom-nav" id="bottomNav">
-        <div class="nav-item active" onclick="setActiveNav(this); location.reload()">
-            <svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
-            <span>Dashboard</span>
-        </div>
-        <div class="nav-item" onclick="setActiveNav(this); alert('Cost page coming soon.')">
-            <svg viewBox="0 0 24 24"><path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2h12c1.1 0 2-.9 2-2V8l-6-6zm2 14h-3v3h-2v-3H8v-2h3v-3h2v3h3v2z"/></svg>
-            <span>Cost</span>
-        </div>
-        <div class="nav-item" onclick="setActiveNav(this); toggleSettings()">
-            <svg viewBox="0 0 24 24"><path d="M19.14,12.94c0.04-0.3,0.06-0.61,0.06-0.94c0-0.32-0.02-0.64-0.06-0.94l2.03-1.58c0.18-0.14,0.23-0.41,0.12-0.61 l-1.92-3.32c-0.12-0.22-0.37-0.29-0.59-0.22l-2.39,0.96c-0.5-0.38-1.03-0.7-1.62-0.94L14.4,2.81c-0.04-0.24-0.24-0.41-0.48-0.41 h-3.84c-0.24,0-0.43,0.17-0.47,0.41L9.25,5.35C8.66,5.59,8.12,5.92,7.63,6.29L5.24,5.33c-0.22-0.08-0.47,0-0.59,0.22L2.73,8.87 C2.62,9.08,2.66,9.34,2.86,9.48l2.03,1.58C4.84,11.36,4.8,11.69,4.8,12s0.02,0.64,0.06,0.94l-2.03,1.58 c-0.18,0.14-0.23,0.41-0.12,0.61l1.92,3.32c0.12,0.22,0.37,0.29,0.59,0.22l2.39-0.96c0.5,0.38,1.03,0.7,1.62,0.94l0.36,2.54 C13.96,21.83,14.16,22,14.4,22h3.84c0.24,0,0.43-0.17,0.47-0.41l0.36-2.54c0.59-0.24,1.13-0.56,1.62-0.94l2.39,0.96 c0.22,0.08,0.47,0,0.59-0.22l1.92-3.32c0.12-0.22,0.07-0.49-0.12-0.61L19.14,12.94z M12,15.6c-1.98,0-3.6-1.62-3.6-3.6 s1.62-3.6,3.6-3.6s3.6,1.62,3.6,3.6S13.98,15.6,12,15.6z"/></svg>
-            <span>Setup</span>
-        </div>
-        <div class="nav-item" onclick="setActiveNav(this); toggleProfile()">
-            <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
-            <span>Profile</span>
         </div>
     </div>
 
@@ -757,9 +726,8 @@
                         <strong id="totalCostVal">$0</strong>
                     </div>
                 </div>
-                <div class="legend">
-                    <div class="legend-item"><div class="dot" style="background: var(--accent-cyan);"></div> Electricity</div>
-                    <div class="legend-item"><div class="dot" style="background: var(--accent-yellow);"></div> Gas</div>
+                <div class="legend" style="justify-content: center;">
+                    <div class="legend-item"><div class="dot" style="background: var(--accent-cyan);"></div> Electricity Only</div>
                 </div>
             </div>
 
@@ -944,10 +912,10 @@
         let costChart = new Chart(ctxCost, {
             type: 'doughnut',
             data: {
-                labels: ['Electricity', 'Gas'],
+                labels: ['Electricity'],
                 datasets: [{
-                    data: [0, 0],
-                    backgroundColor: [pBlue, pYellow],
+                    data: [100],
+                    backgroundColor: [pBlue],
                     borderWidth: 0,
                     cutout: '80%'
                 }]
@@ -955,8 +923,7 @@
             options: {
                 responsive: true,
                 maintainAspectRatio: false,
-                plugins: { legend: { display: false }, tooltip: { enabled: true } },
-                layout: { padding: { right: 80 } }
+                plugins: { legend: { display: false }, tooltip: { enabled: true } }
             }
         });
 
@@ -1105,7 +1072,7 @@
         // --- Simulated Data Fetching / ESP32 Connection ---
         let currentKwh = 0;
         let electricityCost = 0;
-        let gasCost = 0;
+        let lastDataTime = 0;
 
         function setDashboardActive(isActive) {
             const grid = document.getElementById('dashboardGrid');
@@ -1174,16 +1141,19 @@
             if (data.current) document.getElementById('liveCurrent').innerText = data.current.toFixed(2);
             if (data.power) document.getElementById('livePower').innerText = data.power.toFixed(1);
 
-            // 1. Update Cost Expected
-            let tot = electricityCost + gasCost;
-            document.getElementById('totalCostVal').innerText = '$' + tot.toFixed(0);
-            costChart.data.datasets[0].data = [electricityCost, gasCost];
+            // 1. Update Cost Expected - ONLY IF RECENT DATA EXISTS
+            lastDataTime = Date.now();
+            const costValEl = document.getElementById('totalCostVal');
+            costValEl.innerText = '$' + electricityCost.toFixed(0);
+            costValEl.style.color = "white";
+            
+            costChart.data.datasets[0].data = [100]; // Full circle for electricity
             costChart.update();
 
             // 2. Change In cost update
-            let pct = tot > 0 ? ((tot - 150) / 150) * 100 : 0; // Using $150 as base comparison
+            let pct = electricityCost > 0 ? ((electricityCost - 150) / 150) * 100 : 0;
             document.getElementById('percentIncrease').innerText = pct.toFixed(2) + '%';
-            changeChart.data.datasets[0].data[1] = tot;
+            changeChart.data.datasets[0].data[1] = electricityCost;
             changeChart.update();
 
             // 3. Usage estimate point addition
@@ -1211,7 +1181,34 @@
             let emStr = (currentKwh * 0.4).toFixed(2); // ~0.4 kg CO2 per kWh
             document.getElementById('emissionVal').innerText = emStr;
             document.getElementById('emissionFill').style.width = Math.min(100, (emStr / 181.8 * 100)) + '%';
+            
+            // Connection Sync Monitor (Internal)
+            checkConnectionSync();
         }
+
+        function checkConnectionSync() {
+            const now = Date.now();
+            const costValEl = document.getElementById('totalCostVal');
+            if (!lastDataTime || now - lastDataTime > 10000) { // 10 seconds of no data
+                if (costValEl) {
+                    costValEl.innerText = 'OFFLINE';
+                    costValEl.style.color = "var(--accent-red)";
+                    costValEl.style.fontSize = "16px";
+                }
+                if (window.costChart) {
+                    costChart.data.datasets[0].data = [0];
+                    costChart.update();
+                }
+            } else {
+                if (costValEl) {
+                    costValEl.style.fontSize = "32px"; // Restore size
+                    costValEl.style.color = "white";
+                }
+            }
+        }
+
+        // Run connection sync monitor every 5 seconds
+        setInterval(checkConnectionSync, 5000);
 
         // --- NEW FEATURES INTEGRATION ---
 
@@ -1502,8 +1499,10 @@
 
         // Mobile Menu Toggle
         function toggleMobileMenu() {
-            document.getElementById('sidebar').classList.toggle('active');
-            document.getElementById('mobileOverlay').classList.toggle('active');
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('mobileOverlay');
+            if (sidebar) sidebar.classList.toggle('active');
+            if (overlay) overlay.classList.toggle('active');
         }
 
         // Close menu on nav click (mobile)
@@ -1515,12 +1514,6 @@
                 }
             });
         });
-
-        // Bottom Nav Active State
-        function setActiveNav(el) {
-            document.querySelectorAll('.bottom-nav .nav-item').forEach(item => item.classList.remove('active'));
-            el.classList.add('active');
-        }
     </script>
 </body>
 </html>
